@@ -52,11 +52,12 @@ class Weather extends StatelessWidget {
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 120),
+                            const SizedBox(height: 150),
                             Text(
                               'Palu',
                               style: GoogleFonts.lato(
@@ -64,10 +65,13 @@ class Weather extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
                             ),
+                            const SizedBox(
+                              height: 5,
+                            ),
                             Text(
-                              'Palu',
+                              '09:30 PM - Sunday, 13 March 2022',
                               style: GoogleFonts.lato(
-                                  fontSize: 22,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
                             )
@@ -76,19 +80,32 @@ class Weather extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Palu',
+                              '28\u2103',
                               style: GoogleFonts.lato(
-                                  fontSize: 35,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 84,
+                                  fontWeight: FontWeight.w300,
                                   color: Colors.white),
                             ),
-                            Text(
-                              'Palu',
-                              style: GoogleFonts.lato(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            )
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  'assets/moon.svg',
+                                  width: 34,
+                                  height: 34,
+                                  color: Colors.white,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'Night',
+                                  style: GoogleFonts.lato(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
+                                )
+                              ],
+                            ),
                           ]),
                     ],
                   ),
@@ -100,23 +117,148 @@ class Weather extends StatelessWidget {
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.white38)),
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          'Palu',
-                          style: GoogleFonts.lato(
-                              fontSize: 35,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
-                        Text(
-                          'Palu',
-                          style: GoogleFonts.lato(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        )
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                'Wind',
+                                style: GoogleFonts.lato(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text(
+                                '10',
+                                style: GoogleFonts.lato(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text(
+                                'Km/h',
+                                style: GoogleFonts.lato(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Stack(
+                                children: [
+                                  Container(
+                                    height: 5,
+                                    width: 60,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.white38,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20))),
+                                  ),
+                                  Container(
+                                    height: 5,
+                                    width: 5,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.greenAccent,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20))),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                'Rain',
+                                style: GoogleFonts.lato(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text(
+                                '2',
+                                style: GoogleFonts.lato(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text(
+                                '%',
+                                style: GoogleFonts.lato(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Stack(
+                                children: [
+                                  Container(
+                                    height: 5,
+                                    width: 60,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.white38,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20))),
+                                  ),
+                                  Container(
+                                    height: 5,
+                                    width: 5,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.blueAccent,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20))),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                'Humidity',
+                                style: GoogleFonts.lato(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text(
+                                '7',
+                                style: GoogleFonts.lato(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text(
+                                '%',
+                                style: GoogleFonts.lato(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Stack(
+                                children: [
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                        color: Colors.white38,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20))),
+                                    height: 5,
+                                    width: 60,
+                                  ),
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                        color: Colors.redAccent,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20))),
+                                    height: 5,
+                                    width: 5,
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     )
                   ],
                 )
