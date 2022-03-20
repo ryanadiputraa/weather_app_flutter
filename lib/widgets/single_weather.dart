@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,8 +6,11 @@ import 'package:weather_app/models/weather_location.dart';
 
 class SingleWeather extends StatelessWidget {
   final WeatherLocation location;
+  final Function(WeatherLocation) onSetFavorite;
 
-  const SingleWeather({Key? key, required this.location}) : super(key: key);
+  const SingleWeather(
+      {Key? key, required this.location, required this.onSetFavorite})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +28,30 @@ class SingleWeather extends StatelessWidget {
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(height: 150),
-                        Text(
-                          location.city,
-                          style: GoogleFonts.lato(
-                              fontSize: 35,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                        const SizedBox(height: 120),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              location.city,
+                              style: GoogleFonts.lato(
+                                  fontSize: 35,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            GestureDetector(
+                              onTap: () => onSetFavorite(location),
+                              child: Icon(
+                                  location.isFavorite
+                                      ? Icons.favorite
+                                      : Icons.favorite_outline,
+                                  color: Colors.red,
+                                  size: 30),
+                            ),
+                          ],
                         ),
                         const SizedBox(
                           height: 5,
