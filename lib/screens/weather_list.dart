@@ -5,18 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/models/weather_location.dart';
 
-class WeatherList extends StatefulWidget {
-  final List<WeatherLocation> location;
-  const WeatherList({
-    Key? key,
-    required this.location,
-  }) : super(key: key);
+// class WeatherList extends StatefulWidget {
+//   final List<WeatherLocation> location;
+//   const WeatherList({
+//     Key? key,
+//     required this.location,
+//   }) : super(key: key);
 
-  @override
-  State<WeatherList> createState() => _WeatherListState();
-}
+//   @override
+//   State<WeatherList> createState() => _WeatherListState();
+// }
 
-class _WeatherListState extends State<WeatherList> {
+class WeatherList extends StatelessWidget {
+  final List<WeatherLocation> locations;
+
+  const WeatherList({Key? key, required this.locations}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +59,7 @@ class _WeatherListState extends State<WeatherList> {
                 padding: const EdgeInsets.fromLTRB(20, 120, 20, 0),
                 child: ListView.builder(
                   itemBuilder: (context, idx) {
-                    final location = widget.location[idx];
+                    final location = locations[idx];
                     return Container(
                       margin: const EdgeInsets.only(bottom: 12),
                       width: double.infinity,
@@ -81,7 +85,7 @@ class _WeatherListState extends State<WeatherList> {
                           ]),
                     );
                   },
-                  itemCount: widget.location.length,
+                  itemCount: locations.length,
                 ))
           ],
         ));

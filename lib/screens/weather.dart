@@ -38,7 +38,7 @@ class _WeatherState extends State<Weather> {
       wind: 8,
       rain: 7,
       humidity: 41,
-      isFavorite: true,
+      isFavorite: false,
     ),
     WeatherLocation(
       city: 'New York',
@@ -49,7 +49,7 @@ class _WeatherState extends State<Weather> {
       wind: 5,
       rain: 15,
       humidity: 30,
-      isFavorite: true,
+      isFavorite: false,
     ),
     WeatherLocation(
       city: 'Jakarta',
@@ -65,7 +65,6 @@ class _WeatherState extends State<Weather> {
   ];
 
   onSetFavorite(WeatherLocation location) {
-    print(location.isFavorite);
     setState(() {
       location.isFavorite = !location.isFavorite;
     });
@@ -114,7 +113,7 @@ class _WeatherState extends State<Weather> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => WeatherList(
-                            location: locationList,
+                            locations: locationList,
                           ))),
               child: SvgPicture.asset(
                 'assets/menu.svg',
